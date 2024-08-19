@@ -1,0 +1,285 @@
+/* Preloader */
+.loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #f57c00;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+:root{
+    --bg-color: #111111;
+    --second-bg-color:#151515;
+    --text-color: white;
+    --main-color: #ff8204;
+}
+
+/* General Styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    /* background: url('makanan4.jpg') no-repeat center center/cover; */
+    background-color: rgba(128, 128, 128, 0.614);
+    background-size: 100% 75%; /* Lebar 100%, tinggi otomatis menyesuaikan */
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+.content {
+    display: none;
+}
+
+header {
+    height: 50vh;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out; /* Transisi halus antar gambar */
+}
+
+/* Optional: Mengatur ukuran agar responsif */
+header h1, header p, header .btn {
+    position: relative;
+    z-index: 2;
+}
+
+/* Overlay untuk membuat teks terlihat lebih jelas */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Overlay gelap untuk teks yang lebih kontras */
+    z-index: 1;
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeInDown 2s forwards;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+ nav ul li a:hover {
+        background-color: orange;
+ }
+
+h1 {
+    font-size: 3em;
+    animation: fadeInUp 2s forwards;
+    opacity: 0;
+}
+
+p {
+    opacity: 0;
+    animation: fadeInUp 2s 0.5s forwards;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: #f57c00;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background 0.3s;
+    opacity: 0;
+    animation: fadeInUp 2s 1s forwards;
+}
+
+.btn:hover {
+    background: #ff9800;
+}
+
+.navbar2{
+    padding-top: 5%;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#about {
+    background-color: #f4f4f4;
+}
+ #about .about-content{
+    display: flex;
+    align-items: center; /* Agar gambar dan teks berada pada garis yang sama secara vertikal */
+    gap: 20px; /* Memberikan jarak antara gambar dan teks */
+    flex-wrap: wrap; /* Agar konten tetap responsif di layar kecil */
+    justify-content: center;
+ }
+
+ #about img {
+    width: 50%;
+    max-width: 400px; /* Membatasi ukuran maksimum gambar */
+    border-radius: 10px;
+    margin-right: 20px;
+    object-fit: cover; /* Agar gambar tetap proporsional */
+}
+
+/* #about img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    animation: zoomIn 1s ease-in-out;
+} */
+
+#about .text-content {
+    flex: 1; /* Mengambil sisa ruang yang tersedia */
+}
+#about h1{
+    color: white;
+    margin-bottom: 10px;
+}
+
+#text-content p{
+    text-align: left;
+}
+#menu h1{
+    color: white;
+
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#menu .menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu-item {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: left;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-in-out forwards;
+}
+
+.menu-item img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.menu-item h3 {
+    margin: 0;
+}
+
+#contact{
+    background-color: rgb(233, 239, 239);
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Add fadeIn effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+::-webkit-scrollbar{
+    width: 15px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--main-color);
+}
+::-webkit-scrollbar-track{
+    background-color: var(--bg-color);
+}
