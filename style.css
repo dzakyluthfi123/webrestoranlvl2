@@ -41,8 +41,9 @@ body {
     box-sizing: border-box;
     overflow-x: hidden;
     /* background: url('makanan4.jpg') no-repeat center center/cover; */
-    background-color: rgba(128, 128, 128, 0.614);
-    background-size: 100% 75%; /* Lebar 100%, tinggi otomatis menyesuaikan */
+    /* background-color: rgba(128, 128, 128, 0.614); */
+    background: url(assets/makanan4.jpg);
+    background-size: 100% 100%; /* Lebar 100%, tinggi otomatis menyesuaikan */
     background-position: center;
     background-repeat: no-repeat;
     
@@ -82,15 +83,23 @@ header::before {
 }
 
 
+.nav{
+    background-color: grey;
+}
+
+
 nav ul {
     list-style: none;
-    padding: 0;
+    padding: 20px;
     margin: 0;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     gap: 20px;
     opacity: 0;
     animation: fadeInDown 2s forwards;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    position: fixed top;
 }
 
 nav ul li a {
@@ -166,8 +175,16 @@ section {
 }
 
 #about {
-    background-color: #f4f4f4;
+    background-color: #3d3636; /* Warna latar belakang cadangan */
+    background-image: url('assets/bgabout.jpg'); /* Path ke gambar */
+    background-size: cover; /* Membuat gambar menutupi seluruh elemen */
+    background-position: center; /* Memusatkan gambar */
+    background-repeat: no-repeat; /* Menghindari pengulangan gambar */
+    padding: 60px 20px; /* Padding untuk memberikan ruang di dalam elemen */
+    color: white; /* Warna teks untuk kontras dengan latar belakang */
+    text-align: center; /* Memusatkan teks di dalam elemen */
 }
+
  #about .about-content{
     display: flex;
     align-items: center; /* Agar gambar dan teks berada pada garis yang sama secara vertikal */
@@ -248,9 +265,71 @@ section {
     margin: 0;
 }
 
-#contact{
-    background-color: rgb(233, 239, 239);
+.menu{
+    background: url(assets/makanan3.jpg);
+    /* padding: 100%; */
+    background-size: cover;
+    background-repeat: no-repeat;
 }
+
+
+#contact{
+    background: url(assets/makanan3.jpg);
+    background-size: cover; /* Membuat gambar menutupi seluruh elemen */
+    background-position: center; /* Memusatkan gambar */
+    background-repeat: no-repeat;
+}
+
+/* Styling untuk form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Jarak antar elemen */
+    max-width: 400px; /* Lebar maksimum form */
+    margin: 0 auto; /* Center form */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling untuk label */
+label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Styling untuk input dan textarea */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%; /* Lebar penuh */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box; /* Memastikan padding tidak menambah ukuran */
+}
+
+/* Styling untuk tombol submit */
+button[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect untuk tombol submit */
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
 
 footer {
     background: #333;
