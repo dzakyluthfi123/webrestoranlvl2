@@ -37,3 +37,122 @@ document.addEventListener("DOMContentLoaded", function() {
     // Jalankan sekali saat halaman pertama kali dimuat
     changeBackgroundImage();
 });
+
+
+function clearForm(form, event) {
+    // Mencegah form untuk benar-benar terkirim (untuk keperluan demo)
+    event.preventDefault();
+
+    // Mengosongkan form
+    form.reset();
+
+    // Menampilkan notifikasi di bawah form
+    var notificationDiv = document.getElementById('formNotification');
+    notificationDiv.innerHTML = '<p style="color: white; font-size: 50%;">Form has been submitted successfully!</p>';
+}
+
+
+
+
+ // Simpan data pesanan di sini
+ let cart = [];
+
+ function addToCart(itemName, itemPrice, button) {
+     // Ambil elemen input jumlah
+     let quantityInput = button.previousElementSibling;
+     let quantity = parseInt(quantityInput.value);
+
+     // Periksa apakah item sudah ada di keranjang
+     let itemIndex = cart.findIndex(item => item.name === itemName);
+     if (itemIndex > -1) {
+         // Item sudah ada, perbarui kuantitas
+         cart[itemIndex].quantity += quantity;
+     } else {
+         // Item belum ada, tambahkan ke keranjang
+         cart.push({ name: itemName, price: itemPrice, quantity: quantity });
+     }
+
+     // Perbarui tampilan keranjang
+     updateCart();
+ }
+
+ function updateCart() {
+     let cartBody = document.getElementById('cart-body');
+     cartBody.innerHTML = '';
+
+     cart.forEach((item, index) => {
+         let row = document.createElement('tr');
+         row.innerHTML = `
+             <td>${item.name}</td>
+             <td><input type="number" value="${item.quantity}" min="1" class="quantity-input" onchange="updateQuantity(${index}, this)"></td>
+             <td>Rp. ${item.price.toLocaleString()}</td>
+             <td>Rp. ${(item.price * item.quantity).toLocaleString()}</td>
+             <td>
+                 <button class="edit-btn" onclick="editItem(${index})">Edit</button>
+                 <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+             </td>
+         `;
+         cartBody.appendChild(row);
+     });
+ }
+
+ function updateQuantity(index, input) {
+     let newQuantity = parseInt(input.value);
+     if (newQuantity > 0) {
+         cart[index].quantity = newQuantity;
+         updateCart();
+     }
+ }
+
+ function editItem(index) {
+     // Fungsi ini bisa digunakan untuk mengedit item lebih lanjut jika diperlukan
+     alert('Edit functionality is not implemented.');
+ }
+
+ function removeItem(index) {
+     cart.splice(index, 1);
+     updateCart();
+ }
+
+
+
+
+
+ function addToCart(itemName, itemPrice) {
+    let quantityInput = event.target.previousElementSibling;
+    let quantity = parseInt(quantityInput.value);
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let itemIndex = cart.findIndex(item => item.name === itemName);
+
+    if (itemIndex > -1) {
+        cart[itemIndex].quantity += quantity;
+    } else {
+        cart.push({ name: itemName, price: itemPrice, quantity: quantity });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+
+
+
+
+document.getElementById('checkout-btn').onclick = function() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    fetch('save_cart.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(cart)
+    })
+    .then(response => response.text())
+    .then(result => {
+        alert('Data saved successfully!');
+        localStorage.removeItem('cart'); // Hapus keranjang setelah checkout
+        updateCart(); // Perbarui keranjang
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+};
