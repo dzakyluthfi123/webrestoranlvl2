@@ -288,7 +288,7 @@ form {
     max-width: 400px; /* Lebar maksimum form */
     margin: 0 auto; /* Center form */
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: red;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -329,7 +329,13 @@ button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+.nav{
+    border-color: black;
+}
 
+.border{
+    background-color: red;
+}
 
 footer {
     background: #333;
@@ -362,3 +368,34 @@ footer p {
 ::-webkit-scrollbar-track{
     background-color: var(--bg-color);
 }
+
+
+
+  /* Menghapus padding dan margin dari ul dan li */
+  .nav ul {
+    list-style-type: none; /* Menghilangkan bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Membuat menu tampil horizontal */
+}
+
+/* Styling untuk link dalam menu */
+.nav ul li {
+    margin-right: 20px; /* Memberi jarak antara item menu */
+}
+
+.nav ul li a {
+    text-decoration: none; /* Menghilangkan garis bawah */
+    color: #000; /* Warna teks */
+    font-size: 18px; /* Ukuran teks */
+    padding: 10px 15px; /* Memberi ruang pada link */
+    display: block; /* Membuat link menjadi blok penuh */
+    transition: background-color 0.3s ease; /* Animasi saat hover */
+}
+
+/* Efek hover untuk link */
+.nav ul li a:hover {
+    background-color: #f0f0f0; /* Background saat di-hover */
+    border-radius: 5px; /* Membuat sudutnya melengkung */
+}
+

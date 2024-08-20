@@ -1,5 +1,5 @@
 <footer>
-    <p>&copy; 2024 Restoran XYZ. All Rights Reserved.</p>
+    <p>&copy; Masjai2007. All Rights Reserved.</p>
 </footer>
 </div>
 
