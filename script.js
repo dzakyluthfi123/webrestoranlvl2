@@ -156,3 +156,41 @@ document.getElementById('checkout-btn').onclick = function() {
         console.error('Error:', error);
     });
 };
+
+
+
+// notifkontak //
+
+function submitForm(event) {
+    event.preventDefault(); // Mencegah pengiriman form default
+
+    // Simulasi pengiriman form dan respons sukses
+    const form = event.target;
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+            method: form.method,
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            // Tampilkan pesan sukses
+            const notification = document.getElementById('formNotification');
+            notification.textContent = 'Your message has been sent successfully!';
+            notification.style.color = 'green';
+
+            // Kosongkan form
+            form.reset();
+
+            // Hilangkan notifikasi setelah 3 detik
+            setTimeout(() => {
+                notification.textContent = '';
+            }, 3000);
+        })
+        .catch(error => {
+            // Tampilkan pesan kesalahan jika terjadi
+            const notification = document.getElementById('formNotification');
+            notification.textContent = 'There was an error sending your message. Please try again.';
+            notification.style.color = 'red';
+        });
+}

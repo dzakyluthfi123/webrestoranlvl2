@@ -76,6 +76,7 @@ include 'header.php';
                 <input type="number" class="quantity-input" min="0" value="0">
                 <button class="add-to-cart-btn" onclick="addToCart('Grilled Fish', 110000)">Tambah</button>
             </div>
+
         </div>
         <!-- Tambahkan lebih banyak item menu di sini -->
     </div>
@@ -94,10 +95,10 @@ include 'header.php';
 
 <!-- <h2>Contact Us</h2> -->
 
-<section id=" contact">
+<section id="contact">
     <!-- <h2><b>Contact Us</b></h2> -->
     <div class="border">
-        <form action="koneksi.php" method="POST" onsubmit="clearForm(this, event)">
+        <form action="koneksi.php" method="POST" onsubmit="submitForm(event)">
             <div class="tulisan">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -113,9 +114,11 @@ include 'header.php';
         </form>
 
         <!-- Tempat untuk notifikasi -->
-        <div id="formNotification" style="margin-top: 20px;" style="color: red;"></div>
+        <div id="formNotification" style="margin-top: 20px;"></div>
     </div>
 </section>
+
+
 
 
 <?php

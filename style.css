@@ -593,7 +593,11 @@ button:hover {
  /* CSS untuk menu */
  #menu {
     padding: 20px;
-    background-color: #f8f9fa;
+    /* background-color: #f8f9fa; */
+    background: url(assets/bgmenu1.jpg);
+    background-size: cover; /* Membuat gambar menutupi seluruh elemen */
+    background-position: center; /* Memusatkan gambar */
+    background-repeat: no-repeat;
 }
 
 #menu h1 {
@@ -626,32 +630,50 @@ button:hover {
 
 .quantity-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    margin-top: 10px;
+    gap: 10px; /* Adds space between the input and button */
+    max-width: 300px; /* Optional: Limit the maximum width */
+    margin: 0 auto; /* Center the container horizontally */
 }
 
 .quantity-input {
-    width: 60px;
-    padding: 5px;
+    flex: 1; /* The input will take up available space */
+    padding: 8px;
+    font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    text-align: center;
+    box-sizing: border-box;
 }
 
 .add-to-cart-btn {
+    flex: 0 0 auto; /* The button will maintain its natural size */
+    padding: 8px 16px;
+    font-size: 16px;
     background-color: #28a745;
-    color: #fff;
+    color: white;
     border: none;
-    padding: 10px 15px;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 10px;
+    transition: background-color 0.3s;
 }
 
 .add-to-cart-btn:hover {
-    background-color: #218838;
+    background-color: #218838; /* Darker green on hover */
 }
+
+@media (max-width: 600px) {
+    .quantity-container {
+        flex-direction: column; /* Stack input and button vertically on small screens */
+        gap: 5px; /* Smaller gap on small screens */
+        width: 100%; /* Full width on small screens */
+    }
+
+    .add-to-cart-btn {
+        width: 100%; /* Button takes full width on small screens */
+    }
+}
+
 
 /* CSS untuk keranjang belanja */
 #cart {
