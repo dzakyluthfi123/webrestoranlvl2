@@ -2,16 +2,33 @@
 include 'header.php';
 ?>
 
+<?php
+session_start();
+
+// Cek apakah pengguna sudah login
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header('Location: index.html');
+    exit();
+}
+?>
+
+
+
 
 <section id="about">
     <h1>About Us</h1>
     <div class="about-content">
-        <img src="assets/makanan.jpg" alt="Our Restaurant">
-        <div class="text-content">
+        <img src="assets/makanan.jpg" alt="Our Restaurant" class="slide-in-up">
+        <div class="text-content slide-in-up">
             <p>Restoran Ku has been serving the community with delicious food for over 20 years. We pride ourselves on quality and freshness.</p>
         </div>
     </div>
 </section>
+
+
+
+
+
 
 
 <section id="menu">

@@ -9,14 +9,19 @@
 </head>
 
 <body>
-    <div class="nav">
-        <nav>
-            <ul>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <div class="nav3">
+        <div id="content">
+            <!-- Konten halaman Anda -->
+
+            <nav>
+                <ul>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <button><a href="logout.php">Logout</a></button>
+                </ul>
+            </nav>
+        </div>
     </div>
 
 

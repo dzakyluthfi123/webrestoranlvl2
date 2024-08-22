@@ -194,3 +194,83 @@ function submitForm(event) {
             notification.style.color = 'red';
         });
 }
+
+
+// about
+
+document.addEventListener("DOMContentLoaded", function() {
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                // Tambahkan kelas 'animate' untuk memulai transisi
+                entry.target.classList.add("animate");
+
+                // Hapus kelas 'animate' setelah transisi selesai
+                setTimeout(() => {
+                    entry.target.classList.remove("animate");
+                }, 1500); // Pastikan waktu ini sama dengan durasi transisi
+            }
+        });
+    }, { threshold: 0.1 }); // Mengatur 10% dari elemen terlihat sebelum animasi dimulai
+
+    // Mengamati elemen dengan kelas slide-in-up
+    document.querySelectorAll('.slide-in-up').forEach(function(element) {
+        observer.observe(element);
+    });
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    let observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("appear");
+                observer.unobserve(entry.target); // Berhenti mengamati setelah animasi dipicu
+            }
+        });
+    }, { threshold: 0.1 }); // Mengatur 10% dari elemen terlihat sebelum animasi dimulai
+
+    // Mengamati setiap elemen dengan kelas .menu-item
+    document.querySelectorAll('.menu-container').forEach(function(element) {
+        observer.observe(element);
+    });
+});
+
+
+// login
+
+// Data pengguna yang valid (contoh)
+// const validUser = {
+//     username: "admin",
+//     password: "123"
+// };
+
+// document.getElementById('loginForm').addEventListener('submit', function(e) {
+//     e.preventDefault();
+
+//     // Ambil nilai dari form
+//     const username = document.getElementById('username').value;
+//     const password = document.getElementById('password').value;
+
+//     // Validasi login
+//     if (username === validUser.username && password === validUser.password) {
+//         // Jika login berhasil, alihkan ke halaman utama
+//         window.location.href = 'index.php'; // Ubah ini sesuai dengan halaman tujuan setelah login
+//     } else {
+//         // Jika login gagal, tampilkan pesan error
+//         document.getElementById('error-message').innerText = 'Invalid username or password';
+//     }
+// });
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    const username = document.getElementById('123').value;
+    const password = document.getElementById('123').value;
+
+    // Tambahkan validasi klien jika diperlukan
+    if (!username || !password) {
+        document.getElementById('error-message').innerText = 'Please enter both username and password';
+        e.preventDefault(); // Menghentikan pengiriman form jika validasi gagal
+    }
+});
+
