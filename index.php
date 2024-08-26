@@ -98,7 +98,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         <!-- Tambahkan lebih banyak item menu di sini -->
     </div>
     <section id="cart-link">
-        <a href="index2.php"><button>VIEW MENU</button></a>
+        <a href="bagianyangdibeli.php"><button>VIEW MENU</button></a>
     </section>
 </section>
 

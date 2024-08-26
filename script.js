@@ -274,3 +274,19 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     }
 });
 
+
+document.getElementById('checkout-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    
+    if (cart.length > 0) {
+        // Set cart data ke hidden input
+        document.getElementById('cart-data').value = JSON.stringify(cart);
+        
+        // Submit form
+        this.submit();
+    } else {
+        alert('Keranjang belanja Anda kosong.');
+    }
+});
+
+

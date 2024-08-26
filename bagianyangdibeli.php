@@ -117,10 +117,11 @@
         <div class="total" id="cart-total">Total: Rp. 0</div>
 
         <br>
-        <form id="checkout-form" action="save_cart.php" method="POST">
+        <form id="checkout-form" action="db.php" method="POST">
             <input type="hidden" name="cart" id="cart-data">
             <button type="submit" class="checkout-btn">Checkout</button>
         </form>
+
 
 
         <a href="index.php" class="back-btn">Back to Menu</a>
