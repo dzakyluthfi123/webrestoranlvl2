@@ -4,7 +4,7 @@ session_start();
 // Data pengguna yang valid (contoh)
 $validUser = [
     'username' => 'admin',
-    'password' => '12345'
+    'password' => '123'
 ];
 
 // Ambil nilai dari form

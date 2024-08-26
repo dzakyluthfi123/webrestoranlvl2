@@ -18,7 +18,7 @@
                     <li><a href="#menu">Menu</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <button><a href="logout.php">Logout</a></button>
+                    <li><a href="login.php">Kembali Menu Login</a></li>
                 </ul>
             </nav>
         </div>
